@@ -1,3 +1,4 @@
+import { AppService } from './app.server';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +34,7 @@ registerLocaleData(en);
     NzDividerModule,
     NzBreadCrumbModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, AppService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
