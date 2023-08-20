@@ -15,13 +15,18 @@ export class AppComponent {
     private http: HttpClient
   ) {}
 
-  users:RootUsers = []
+  users: RootUsers = [];
 
   testService() {
     this.appService.getHello();
   }
   incrementCounter() {
     throw new Error('fix');
+  }
+
+  onclickName(names: string) {
+    console.log(names);
+    this.innerContentTitle = names;
   }
 
   ngOnInit() {
@@ -33,5 +38,5 @@ export class AppComponent {
   }
 
   title = 'angular-zero-up-level';
-
+  innerContentTitle: string = '';
 }
