@@ -1,42 +1,15 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
+import { RootUsers } from './interface/user.interface';
 import { AppService } from './app.server';
-import { Component, Injectable } from '@angular/core';
-import { RootUsers, User } from './interface/user.interface';
+import { UntypedFormGroup } from '@angular/forms';
+import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-@Injectable()
-export class AppComponent {
-  constructor(
-    private readonly appService: AppService,
-    private http: HttpClient
-  ) {}
-
-  users: RootUsers = [];
-
-  testService() {
-    this.appService.getHello();
-  }
-  incrementCounter() {
-    throw new Error('fix');
-  }
-
-  onclickName(names: string) {
-    console.log(names);
-    this.innerContentTitle = names;
-  }
-
-  ngOnInit() {
-    this.http
-      .get<any[]>('https://jsonplaceholder.typicode.com/users')
-      .subscribe((res: RootUsers) => {
-        this.users = res;
-      });
-  }
-
-  title = 'angular-zero-up-level';
-  innerContentTitle: string = '';
+export class AppComponent  {
+ 
 }
