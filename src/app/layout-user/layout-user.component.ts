@@ -27,7 +27,7 @@ export class LayoutUserComponent implements OnInit {
   changeEmail: string = '';
   review: string = '';
   login: string = '';
-  addNewUser : string = '';
+  addNewUser: string = '';
   @Input() name: any;
 
   constructor(
@@ -36,13 +36,13 @@ export class LayoutUserComponent implements OnInit {
     private fb: FormBuilder
   ) {
     setInterval(() => {
-        if(this.users.length  >  10) {
-            this.review = 'disabled'
-            this.login = 'Khong the dang ki'
-        }else {
-          this.review = ''
-          this.login = 'co the dang ki'
-        }
+      if (this.users.length > 10) {
+        this.review = 'disabled';
+        this.login = 'Khong the dang ki';
+      } else {
+        this.review = '';
+        this.login = 'co the dang ki';
+      }
     }, 1000);
   }
 
@@ -71,7 +71,7 @@ export class LayoutUserComponent implements OnInit {
   }
 
   ss() {
-    alert('Quickly clicked'); 
+    alert('Quickly clicked');
   }
 
   isVisible = false;
@@ -105,31 +105,31 @@ export class LayoutUserComponent implements OnInit {
     this.innerCompany = undefined;
   }
 
-  addUser(){
-      if(this.addNewUser.length!=0){
-        this.users.push({
-          "id": 1,
-          "name": `${this.addNewUser}`,
-          "username": "Bret",
-          "email": "Sincere@april.biz",
-          "address": {
-            "street": "Kulas Light",
-            "suite": "Apt. 556",
-            "city": "Gwenborough",
-            "zipcode": "92998-3874",
-            "geo": {
-              "lat": "-37.3159",
-              "lng": "81.1496"
-            }
+  addUser() {
+    if (this.addNewUser.length != 0) {
+      this.users.push({
+        id: 1,
+        name: `${this.addNewUser}`,
+        username: 'Bret',
+        email: 'Sincere@april.biz',
+        address: {
+          street: 'Kulas Light',
+          suite: 'Apt. 556',
+          city: 'Gwenborough',
+          zipcode: '92998-3874',
+          geo: {
+            lat: '-37.3159',
+            lng: '81.1496',
           },
-          "phone": "1-770-736-8031 x56442",
-          "website": "hildegard.org",
-          "company": {
-            "name": "Romaguera-Crona",
-            "catchPhrase": "Multi-layered client-server neural-net",
-            "bs": "harness real-time e-markets"
-          }
-        })
-      }
+        },
+        phone: '1-770-736-8031 x56442',
+        website: 'hildegard.org',
+        company: {
+          name: 'Romaguera-Crona',
+          catchPhrase: 'Multi-layered client-server neural-net',
+          bs: 'harness real-time e-markets',
+        },
+      });
+    }
   }
 }

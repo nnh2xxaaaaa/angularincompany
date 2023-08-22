@@ -1,42 +1,42 @@
-.logo {
-    height: 32px;
-    margin: 16px;
-    background: rgba(89, 152, 175, 0.3);
+/* Reset some default margin and padding */
+body, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic styles for layout */
+body {
+  font-family: Arial, sans-serif;
+}
+
+header, nav, main, section, footer {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+/* Flexbox layout */
+.flexbox-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin: 5px;
+}
+
+/* Grid layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 768px) {
+  .flexbox-container, .grid-container {
+    flex-direction: column;
   }
-  
-  nz-header {
-    background: #e3dcdc;
-    padding: 0;
-  }
-  
-  nz-content {
-    margin: 0 16px;
-  }
-  
-  nz-breadcrumb {
-    margin: 16px 0;
-  }
-  
-  .inner-content {
-    padding: 24px;
-    background: #aec1e5;
-    min-height: 460px;
-  }
-  
-  nz-footer {
-    text-align: center;
-  }
-  
-  [nz-form] {
-    max-width: 600px;
-  }
-  
-  .phone-select {
-    width: 70px;
-  }
-  
-  .register-are {
-    margin-bottom: 8px;
-  }
-  
-  
+}
