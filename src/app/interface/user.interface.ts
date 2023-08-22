@@ -2,7 +2,7 @@ export type RootUsers = User[]
 
 export interface User {
   id: number
-  name: string
+  name: string 
   username: string
   email: string
   address: Address

@@ -75,9 +75,10 @@
                     <nz-form-label [nzSpan]="6" nzFor="email"
                       >E-mail</nz-form-label
                     >
-                    <nz-form-control [nzSpan]="14">
-                      <input nz-input name="name" type="email" id="name" />
+                    <nz-form-control [nzSpan]="14" >
+                      <input nz-input name="name" type="email" id="name" [(ngModel)]="changeEmail"  onchange="handleOk()"  />
                     </nz-form-control>
+                    
                   </nz-form-item>
                 </form>
               </ng-container>
@@ -98,6 +99,8 @@
         </ng-template>
       </div>
     </nz-content>
+
     <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+
   </nz-layout>
 </nz-layout>

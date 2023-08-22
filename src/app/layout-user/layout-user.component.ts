@@ -4,6 +4,7 @@ import { UntypedFormGroup } from '@angular/forms';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { AppService } from '../app.server';
 import { RootUsers } from '../interface/user.interface';
+import { FormGroup , FormBuilder ,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-layout-user',
@@ -11,6 +12,7 @@ import { RootUsers } from '../interface/user.interface';
   styleUrls: ['./layout-user.component.scss'],
 })
 export class LayoutUserComponent implements OnInit {
+  form: FormGroup | undefined;
   users: RootUsers = [];
   validateForm!: UntypedFormGroup;
   captchaTooltipIcon: NzFormTooltipIcon = {
@@ -22,12 +24,22 @@ export class LayoutUserComponent implements OnInit {
   innerAddress: string | undefined = '';
   innerCompany: string | undefined = '';
   innerReset: string = '';
+  changeEmail : string  = '';
   @Input() name: any;
 
   constructor(
     private readonly appService: AppService,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      // Add other form controls here
+    });
+  }
+
+
 
   ngOnInit() {
     this.http
@@ -61,16 +73,20 @@ export class LayoutUserComponent implements OnInit {
 
   handleOk(): void {
     console.log('Button ok clicked!');
-    this.isVisible = false;
+    const userToUpdate = this.users.find((user) => user.name === this.innerName);
+    if (userToUpdate) {
+      this.innerName = this.changeEmail;
+      userToUpdate.name = this.changeEmail; 
+    }
+
+    console.log(userToUpdate)
+    console.log(this.users)
+
   }
 
   handleCancel(): void {
     console.log('Button cancel clicked!');
     this.isVisible = false;
-  }
-
-  async updateName(string: string) {
-    console.log('Updating name');
   }
 
   clickPage() {
