@@ -1,42 +1,74 @@
-/* Reset some default margin and padding */
-body, h1, h2, h3, p {
-  margin: 0;
+.container {
+    display: flex;
+}
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+
+nz-header {
+  background: #d52929;
   padding: 0;
 }
 
-/* Basic styles for layout */
-body {
-  font-family: Arial, sans-serif;
+nz-content {
+  margin: 0 16px;
 }
 
-header, nav, main, section, footer {
-  padding: 20px;
-  border: 1px solid #ccc;
+nz-breadcrumb {
+  margin: 26px 0;
 }
 
-/* Flexbox layout */
-.flexbox-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.inner-content {
+  padding: 24px;
+  background: #fff;
+  min-height: 360px;
 }
 
-.box {
-  background-color: #f0f0f0;
-  padding: 10px;
-  margin: 5px;
+.ant-layout-sider,
+.ant-layout-sider-dark {
+  min-height: 300px;
 }
 
-/* Grid layout */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-/* Responsive layout */
-@media screen and (max-width: 768px) {
-  .flexbox-container, .grid-container {
-    flex-direction: column;
-  }
+/* Basic styling for images */
+img {
+  max-width: 50%; /* Ensure images don't exceed their container width */
+  height: 50%; /* Maintain aspect ratio */
+  border: 2px solid #ddd; /* Add a border around images */
+  border-radius: 5px; /* Round the corners of images */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  margin: 10px; /* Add margin around images */
+}
+
+/* Styling for images within a specific class or ID */
+.image-container img {
+  border: none; /* Remove border for images within .image-container */
+  border-radius: 0; /* Remove border radius */
+  box-shadow: none; /* Remove box shadow */
+}
+
+/* Hover effect for images */
+img:hover {
+  opacity: 0.8; /* Reduce opacity on hover */
 }

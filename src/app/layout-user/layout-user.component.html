@@ -1,15 +1,77 @@
-<header>Header</header>
-<nav>Nav</nav>
-<main>
-  <section class="flexbox-container">
-    <div class="box">Box 1</div>
-    <div class="box">Box 2</div>
-    <div class="box">Box 3</div>
-  </section>
-  <section class="grid-container">
-    <div class="box">Grid Box 1</div>
-    <div class="box">Grid Box 2</div>
-    <div class="box">Grid Box 3</div>
-  </section>
-</main>
-<footer>Footer</footer>
+<div class="container">
+  <nz-layout>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+      <div class="logo"></div>
+      <ul nz-menu nzTheme="dark" nzMode="inline">
+        <li nz-submenu nzTitle="User" nzIcon="user">
+          <ul>
+            <li
+              nz-menu-item
+              (click)="isInfo(user.name)"
+              *ngFor="let user of users"
+            >
+              {{ user.name }}
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Team" nzIcon="team">
+          <ul>
+            <li nz-menu-item>Team 1</li>
+            <li nz-menu-item>Team 2</li>
+          </ul>
+        </li>
+        <li nz-menu-item>
+          <span nz-icon nzType="file"></span>
+          <span>File</span>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <span
+          class="trigger"
+          nz-icon
+          [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          (click)="isCollapsed = !isCollapsed"
+        ></span>
+      </nz-header>
+      <nz-content>
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>User</nz-breadcrumb-item>
+          <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <div class="inner-content">
+          <nz-card
+            class="image-container"
+            style="width: auto; min-width: 400px"
+            [nzCover]="coverTemplate"
+            [nzActions]="[actionSetting, actionEdit]"
+          >
+            <nz-card-meta [nzAvatar]="avatarTemplate"></nz-card-meta>
+          </nz-card>
+          <ng-template #avatarTemplate>
+            <p *ngIf="innerName">Name: {{ innerName }}</p>
+            <p *ngIf="innerEmail">Email: {{ innerEmail }}</p>
+            <p *ngIf="innerAddress">Address: {{ innerAddress }}</p>
+          </ng-template>
+          <ng-template #coverTemplate>
+            <img
+              alt="example"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5l_g3XWl5og2pSEzeY43XsgUQO3SEtEM4DQ&usqp=CAU"
+            />
+          </ng-template>
+          <ng-template #actionSetting>
+            <button nz-button nzType="primary" (click)="showConfirm(innerName)">
+              <span nz-icon nzType="delete" nzTheme="outline"></span>
+            </button>
+          </ng-template>
+          <ng-template #actionEdit>
+            <span nz-icon nzType="edit"></span>
+          </ng-template>
+        </div>
+      </nz-content>
+      <button nz-button nzType="primary" (click)="isDataUsers()">Click</button>
+      <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+    </nz-layout>
+  </nz-layout>
+</div>

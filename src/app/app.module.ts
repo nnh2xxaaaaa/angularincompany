@@ -22,8 +22,10 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { LayoutUserComponent } from './layout-user/layout-user.component';
-
-
+import { LayoutUserService } from './layout-user/layout-service.service';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 registerLocaleData(en);
 
 @NgModule({
@@ -44,9 +46,16 @@ registerLocaleData(en);
     NzIconModule,
     NzModalModule,
     NzFormModule,
-    NzTableModule
+    NzTableModule,
+    NzButtonModule,
+    NzAlertModule,
+    NzMessageModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }, AppService],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US },
+    AppService,
+    LayoutUserService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
